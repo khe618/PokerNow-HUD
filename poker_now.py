@@ -47,11 +47,11 @@ for hand in hands:
     has_cbet = False #will not consider cbet after a raise to the cbet
     possible_3bettors = set()
     for log in hand:
-        if log.startswith("flop"):
+        if log.startswith("Flop"):
             street = "flop"
-        if log.startswith("turn"):
+        if log.startswith("Turn"):
             street = "turn"
-        if log.startswith("river"):
+        if log.startswith("River"):
             street = "river"
         
         if street == "preflop":
@@ -123,6 +123,7 @@ for player, player_actions in preflop.items():
     else:
         threebet = 0
         fold_threebet = 0
+
 
     if player in cbets:
         cbet = round(100 * cbets[player]["bets"] / (cbets[player]["bets"] + cbets[player]["checks"]))
